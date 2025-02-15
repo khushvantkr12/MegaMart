@@ -28,7 +28,7 @@ app.use(cookieParser());
 // }));
 app.use(
 	cors({
-		origin: "*",
+		origin: "https://mega-mart-iota.vercel.app",
 		credentials: true,
 	})
 );
