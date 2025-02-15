@@ -20,20 +20,37 @@ const storeRefreshToken = async (userId, refreshToken) => {
 	await redis.set(`refresh_token:${userId}`, refreshToken, "EX", 7 * 24 * 60 * 60); // 7days
 };
 
+// const setCookies = (res, accessToken, refreshToken) => {
+// 	res.cookie("accessToken", accessToken, {
+// 		httpOnly: true, // prevent XSS attacks, cross site scripting attack
+// 		secure: true,
+// 		sameSite: "Lax", // prevents CSRF attack, cross-site request forgery attack
+// 		maxAge: 15 * 60 * 1000, // 15 minutes
+// 	});
+// 	res.cookie("refreshToken", refreshToken, {
+// 		httpOnly: true, // prevent XSS attacks, cross site scripting attack
+// 		secure: true,
+// 		sameSite: "Lax", // prevents CSRF attack, cross-site request forgery attack
+// 		maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+// 	});
+// };
+
 const setCookies = (res, accessToken, refreshToken) => {
-	res.cookie("accessToken", accessToken, {
-		httpOnly: true, // prevent XSS attacks, cross site scripting attack
-		secure: true,
-		sameSite: "Lax", // prevents CSRF attack, cross-site request forgery attack
-		maxAge: 15 * 60 * 1000, // 15 minutes
-	});
-	res.cookie("refreshToken", refreshToken, {
-		httpOnly: true, // prevent XSS attacks, cross site scripting attack
-		secure: true,
-		sameSite: "Lax", // prevents CSRF attack, cross-site request forgery attack
-		maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-	});
+    res.cookie("accessToken", accessToken, {
+        httpOnly: true,
+        secure: true, // Must be true in production (Render is HTTPS)
+        sameSite: "None", // Allows cross-site cookies
+        maxAge: 15 * 60 * 1000, // 15 minutes
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+        httpOnly: true,
+        secure: true, // Required for HTTPS
+        sameSite: "None",
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
 };
+
 
 export const signup = async (req, res) => {
 	const { email, password, name } = req.body;
