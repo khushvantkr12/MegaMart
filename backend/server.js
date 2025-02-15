@@ -26,13 +26,15 @@ app.use(cookieParser());
 //     origin:["https://mega-mart-iota.vercel.app/"],
 //     credentials:true
 // }));
+
 app.use(cors({
     origin: [
-        //"https://mega-mart-iota.vercel.app", 
+        "https://mega-mart-iota.vercel.app", 
         "https://mega-mart-efmck8r6y-khushvant-kumars-projects.vercel.app" // Add this frontend domain
     ],
     credentials: true
 }));
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
