@@ -37,6 +37,7 @@ const PurchaseSuccessPage = () => {
 		};
 	
 		const sessionId = new URLSearchParams(window.location.search).get("session_id");
+		console.log("Session ID:", sessionId); 
 		if (sessionId) {
 			handleCheckoutSuccess(sessionId);
 		} else {
