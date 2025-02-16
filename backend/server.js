@@ -27,17 +27,24 @@ app.use(cookieParser());
 //     credentials:true
 // }));
 
-app.use(
-    cors({
-        origin: [
-            "https://mega-mart-rho.vercel.app"
-        ],
-        credentials: true, // Ensures cookies are sent
-        methods: ["GET", "POST", "PUT", "DELETE"], // Allows specific HTTP methods
-        allowedHeaders: ["Content-Type", "Authorization"], // Allows necessary headers
-    })
-);
+// app.use(
+//     cors({
+//         origin: [
+//             "https://mega-mart-rho.vercel.app"
+//         ],
+//         credentials: true, // Ensures cookies are sent
+//         methods: ["GET", "POST", "PUT", "DELETE"], // Allows specific HTTP methods
+//         allowedHeaders: ["Content-Type", "Authorization"], // Allows necessary headers
+//     })
+// );
 
+const corsOptions = {
+  origin: "https://mega-mart-rho.vercel.app", // or use a function/array to allow multiple origins
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true, // if you need to allow cookies or authorization headers
+};
+
+app.use(cors(corsOptions));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
