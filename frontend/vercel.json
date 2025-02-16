@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/purchase-success",
-      "destination": "/index.html"
-    }
-  ]
-}
