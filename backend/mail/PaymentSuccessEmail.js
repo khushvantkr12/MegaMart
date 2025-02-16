@@ -45,7 +45,7 @@ export const sendPaymentSuccessEmail = async (email, name, products, totalAmount
       </head>
       <body>
           <div class="container">
-           <a href="https://mega-mart-iota.vercel.app/"><img class="logo" src="https://i.ibb.co/23FgWT8n/Mega-Mart-logo-cleaned-1-removebg-preview.png"
+           <a href="https://mega-mart-rho.vercel.app/"><img class="logo" src="https://i.ibb.co/23FgWT8n/Mega-Mart-logo-cleaned-1-removebg-preview.png"
                       alt="logo"></a>
               <div class="header">Products Payment Confirmation</div>
               <p>Dear <b>${name}</b>,</p>
