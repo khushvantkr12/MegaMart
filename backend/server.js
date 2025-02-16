@@ -30,8 +30,7 @@ app.use(cookieParser());
 app.use(
     cors({
         origin: [
-            "https://mega-mart-iota.vercel.app", 
-            "https://mega-mart-efmck8r6y-khushvant-kumars-projects.vercel.app"
+            "https://mega-mart-rho.vercel.app"
         ],
         credentials: true, // Ensures cookies are sent
         methods: ["GET", "POST", "PUT", "DELETE"], // Allows specific HTTP methods
