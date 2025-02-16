@@ -49,8 +49,8 @@ export const createCheckoutSession = async (req, res) => {
 			payment_method_types: ["card"],
 			line_items: lineItems,
 			mode: "payment",
-			success_url: `https://mega-mart-rho.vercel.app/purchase-success?session_id={CHECKOUT_SESSION_ID}`,
-			cancel_url: `https://mega-mart-rho.vercel.app/purchase-cancel`,
+			success_url: "https://mega-mart-rho.vercel.app/purchase-success?session_id={CHECKOUT_SESSION_ID}",
+			cancel_url: "https://mega-mart-rho.vercel.app/purchase-cancel",
 			discounts: coupon
 				? [
 						{
